@@ -772,12 +772,6 @@ function copyText(text, btn){
 
 /* ---------- init ---------- */
 (async function init(){
-  // عرض فوري بالبيانات المدمجة حتى لا تظهر الأرقام فارغة أثناء انتظار الاتصال بالقاعدة
-  members = SEED_DATA.slice();
-  renderHome();
-  renderMembers();
-
-  // بعدها يتم الاتصال بقاعدة البيانات الحقيقية وتحديث الأرقام تلقائياً لو اختلفت
   await loadData();
   renderHome();
   renderMembers();
