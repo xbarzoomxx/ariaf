@@ -307,7 +307,9 @@
   /* ---------- Mobile fixes ---------- */
   @media (max-width: 720px){
     .shell{ padding: 0 16px; }
-    .topbar-inner{ flex-wrap:wrap; gap:10px; padding: 12px 0; }
+
+    .topbar-inner{ flex-wrap:wrap; justify-content:center; text-align:center; gap:12px; padding: 14px 0; }
+    .brand{ justify-content:center; }
     .brand-text h1{ font-size:15px; }
     nav.tabs{
       order:3; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch;
@@ -316,24 +318,48 @@
     nav.tabs::-webkit-scrollbar{ display:none; }
     nav.tabs button{ padding:8px 14px; font-size:12.5px; flex-shrink:0; }
 
-    .hero{ padding-top:18px; }
+    .hero{ text-align:center; padding:24px 0 8px; }
     .hero::before{ opacity:0.05; width:200px; height:200px; top:-16px; inset-inline-end:-40px; }
-    h2.hero-title{ font-size: clamp(24px, 7.5vw, 34px); }
-    .hero p.lead{ font-size:14.5px; }
+    .eyebrow{ margin-inline:auto; }
+    h2.hero-title{ font-size: clamp(24px, 7.5vw, 34px); margin-inline:auto; }
+    .hero p.lead{ font-size:14.5px; margin-inline:auto; }
+    .hero-cta{ justify-content:center; }
     .hero-cta .btn{ flex:1 1 auto; text-align:center; padding:12px 16px; font-size:13.5px; }
 
-    .stat-grid{ grid-template-columns:1fr 1fr; gap:10px; margin-top:26px; }
-    .stat{ padding:14px 12px; }
+    .stat-grid{ grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; }
+    .stat{ padding:16px 12px; text-align:center; }
     .stat .num{ font-size:21px; }
 
-    .vision-card{ padding:18px 14px; }
+    .vision-card{ padding:20px 16px; margin-top:16px; }
 
-    .panel{ padding:16px; }
-    .panel-head{ align-items:flex-start; }
+    .dist-card{ text-align:center; margin-top:24px; }
+    .dist-card .sub{ margin-inline:auto; max-width:32ch; }
 
-    .admin-toolbar{ align-items:flex-start; }
-    .admin-toolbar > div:last-child{ width:100%; }
+    .about-block{ text-align:center; margin-top:36px; padding-top:28px; }
+    .about-block p{ margin-inline:auto; }
+    .contact-links{ justify-content:center; }
+
+    .panel{ padding:18px; }
+    .panel-head{ flex-direction:column; align-items:center; text-align:center; gap:6px; }
+
+    .sub-head{ text-align:center; margin-inline:auto; margin-bottom:24px; }
+    .sub-grid{ gap:20px; }
+
+    .steps li{ flex-direction:column; align-items:center; text-align:center; gap:8px; padding:20px 4px; }
+
+    .side-card{ text-align:center; padding:18px; }
+    .side-card h3{ text-align:center; }
+    .bank-row{ flex-direction:column; align-items:center; gap:8px; text-align:center; }
+    .bank-row .v{ text-align:center; direction:ltr; }
+    .copy-btn{ margin:0 auto; }
+
+    .warn-list li{ justify-content:center; text-align:center; }
+
+    .admin-toolbar{ flex-direction:column; align-items:center; text-align:center; }
+    .admin-toolbar > div:last-child{ width:100%; display:flex; }
     .admin-toolbar .pill-btn{ flex:1; text-align:center; }
+
+    .gate{ text-align:center; }
   }
   @media (max-width: 420px){
     .stat-grid{ grid-template-columns:1fr; }
