@@ -108,6 +108,7 @@
     margin: 0 0 18px; line-height:1.25; color: var(--ink);
   }
   h2.hero-title em{ font-style:normal; color: var(--gold-soft); }
+  .mobile-break{ display:none; }
   .hero p.lead{ font-size:16px; color: var(--muted); max-width: 54ch; margin:0 0 26px; }
   .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; }
   .btn{
@@ -291,6 +292,7 @@
     .hero::before{ opacity:0.05; width:200px; height:200px; top:-16px; inset-inline-end:-40px; }
     .eyebrow{ margin-inline:auto; }
     h2.hero-title{ font-size: clamp(24px, 7.5vw, 34px); margin-inline:auto; }
+    .mobile-break{ display:block; margin-top:6px; }
     .hero p.lead{ font-size:14.5px; margin-inline:auto; }
     .hero-cta{ justify-content:center; }
     .hero-cta .btn{ flex:1 1 auto; text-align:center; padding:12px 16px; font-size:13.5px; }
@@ -354,7 +356,7 @@
     <div class="hero">
       <div>
         <span class="eyebrow">جمعية أرياف مروي التعاونية — متعددة الأغراض</span>
-        <h2 class="hero-title">من ضفاف نيل مروي، <em>أرض تُزرع</em> و<em>أسهم</em> تُبنى معاً</h2>
+        <h2 class="hero-title">من ضفاف نيل مروي،<span class="mobile-break"></span> <em>أرض تُزرع</em> و<em>أسهم</em> تُبنى</h2>
         <p class="lead">
           جمعية تعاونية متعددة الأغراض تجمع ابناء منطقة مروي حول العمل الزراعي والحيواني المشترك.
           هذه البوابة تعرض سجل المساهمين بشكل مباشر وحديث: للأسماء، وعدد الأسهم، ورسوم التسجيل.
