@@ -140,6 +140,10 @@
     padding: 18px 16px; text-align:center;
   }
   .stat .num{ font-family: var(--font-mono); font-weight:700; font-size: 26px; color: var(--gold-soft); }
+  .stat .num-row{ display:flex; align-items:baseline; justify-content:center; gap:6px; flex-wrap:wrap; }
+  .stat .num-row .num{ font-size:22px; }
+  .stat .num-sep{ font-family: var(--font-mono); font-size:18px; color: var(--line-strong); }
+  .stat .num-offered{ color: var(--ink); }
   .stat .label{ font-size:12.5px; color: var(--muted); margin-top:4px; }
   .stat .micro{ font-size:10.5px; color: var(--muted); margin-top:6px; border-top:1px solid var(--line); padding-top:6px; }
   .stat.stat-vision{
@@ -366,7 +370,10 @@
         </div>
         <div class="stat-grid">
           <div class="stat"><div class="num" id="statMembers">—</div><div class="label">إجمالي الأعضاء</div></div>
-          <div class="stat"><div class="num" id="statShares">—</div><div class="label">إجمالي الأسهم</div><div class="micro">من أصل 40,000 سهم مطروح</div></div>
+          <div class="stat">
+            <div class="num-row"><span class="num" id="statShares">—</span><span class="num-sep">/</span><span class="num num-offered">40,000</span></div>
+            <div class="label">الأسهم المشتراة / المطروحة</div>
+          </div>
           <div class="stat"><div class="num" id="statFees">—</div><div class="label">إجمالي رسوم التسجيل</div></div>
           <div class="stat stat-vision">
             <div class="num" id="statVision">—</div>
