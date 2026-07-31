@@ -133,15 +133,7 @@
   .dist-row .bar-fill{ background: linear-gradient(90deg, var(--gold-pale), var(--gold)); height:100%; border-radius:6px; }
   .dist-row .cnt{ font-family: var(--font-mono); color: var(--gold-soft); text-align:left; direction:ltr; }
 
-  .offered-shares{
-    text-align:center; margin-top:34px; padding:12px 18px;
-    background: linear-gradient(135deg, var(--paper), var(--gold-pale));
-    border:1px solid var(--gold-line); border-radius: 999px;
-    font-size:15px; font-weight:700; color: var(--gold-soft); letter-spacing:.2px;
-  }
-  .offered-shares strong{ font-family: var(--font-mono); color: var(--ink); font-size:17px; }
-
-  .stat-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; margin-top:14px; }
+  .stat-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; margin-top:34px; }
   @media (max-width: 880px){ .stat-grid{ grid-template-columns:1fr 1fr; } }
   .stat{
     background: var(--paper); border:1px solid var(--gold-line); border-radius: var(--radius);
@@ -372,10 +364,9 @@
         <div class="hero-cta">
           <button class="btn btn-gold" onclick="goTo('members')">تصفّح قائمة الأعضاء ←</button>
         </div>
-        <div class="offered-shares">الأسهم المطروحة: <strong>40,000</strong> سهم</div>
         <div class="stat-grid">
           <div class="stat"><div class="num" id="statMembers">—</div><div class="label">إجمالي الأعضاء</div></div>
-          <div class="stat"><div class="num" id="statShares">—</div><div class="label">إجمالي الأسهم المشتراة</div></div>
+          <div class="stat"><div class="num" id="statShares">—</div><div class="label">إجمالي الأسهم</div><div class="micro">من أصل 40,000 سهم مطروح</div></div>
           <div class="stat"><div class="num" id="statFees">—</div><div class="label">إجمالي رسوم التسجيل</div></div>
           <div class="stat stat-vision">
             <div class="num" id="statVision">—</div>
