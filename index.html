@@ -198,6 +198,11 @@
   .search input::placeholder{ color: var(--muted); }
   .search input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
 
+  .table-scroll{
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    width: 100%; max-width: 100%;
+  }
   table{ width:100%; min-width:600px; border-collapse: collapse; font-size:14px; }
   thead th{
     text-align:right; font-family: var(--font-body); font-weight:700; font-size:12.5px;
@@ -444,7 +449,7 @@
         </div>
       </div>
       <div class="scroll-hint">← اسحب الجدول لليسار لرؤية باقي البيانات (رسوم التسجيل، رقم الإشعار)</div>
-      <div style="overflow-x:auto;">
+      <div class="table-scroll">
       <table>
         <thead>
           <tr>
