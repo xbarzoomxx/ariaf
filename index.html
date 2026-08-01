@@ -129,8 +129,8 @@
   .dist-card .sub{ font-size:12px; color: var(--muted); margin-bottom:18px; }
   .dist-row{ display:grid; grid-template-columns: 74px 1fr 46px; align-items:center; gap:10px; margin-bottom:11px; font-size:12.5px; }
   .dist-row .lbl{ color: var(--ink); font-weight:700; }
-  .dist-row .bar-track{ background: var(--paper-dim); border-radius:6px; height:10px; overflow:hidden; }
-  .dist-row .bar-fill{ background: linear-gradient(90deg, var(--gold-pale), var(--gold)); height:100%; border-radius:6px; }
+  .dist-row .bar-track{ background: var(--paper-dim); border-radius:6px; height:10px; overflow:hidden; direction:ltr; }
+  .dist-row .bar-fill{ background: linear-gradient(90deg, var(--gold), var(--gold-pale)); height:100%; border-radius:6px; }
   .dist-row .cnt{ font-family: var(--font-mono); color: var(--gold-soft); text-align:left; direction:ltr; }
 
   .stat-grid{ display:grid; grid-template-columns: repeat(5,1fr); gap:14px; margin-top:34px; }
@@ -153,18 +153,12 @@
     box-shadow: var(--shadow);
   }
 
-  .about-block{
-    margin-top: 54px; padding-top: 40px; border-top:1px solid var(--line);
-    max-width: 68ch;
-  }
-  .about-block h3{ font-family: var(--font-display); font-size:20px; margin:0 0 12px; color: var(--gold-soft); }
-  .about-block p{ color: var(--muted); font-size:14.5px; }
   .note-box{
     background: var(--paper-dim); border:1px solid var(--gold-line);
     border-radius: 10px; padding:14px 16px; font-size:13px; color: var(--ink-2);
   }
 
-  .contact-links{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+  .contact-links{ display:flex; justify-content:flex-start; gap:12px; flex-wrap:wrap; margin:16px 0 0; }
   .contact-link{
     display:inline-flex; align-items:center; gap:9px;
     background: var(--paper); border:1px solid var(--gold-line); border-radius:10px;
@@ -231,6 +225,23 @@
 
   .empty{ text-align:center; padding: 40px 10px; color: var(--muted); font-size:14px; }
 
+  .site-footer{
+    border-top: 3px solid var(--gold);
+    background: var(--ink);
+    margin-top: 20px;
+  }
+  .footer-inner{ padding: 32px 24px; }
+  .footer-grid{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:40px; text-align:right;
+  }
+  .footer-about-col{ flex:1; min-width:0; }
+  .footer-title{ font-family: var(--font-display); font-size:18px; margin:0 0 10px; color: var(--gold-bright); }
+  .footer-about{ font-size:13px; color: rgba(251,243,222,0.82); max-width:52ch; margin:0; line-height:1.75; }
+  .footer-legal-col{ text-align:left; flex-shrink:0; }
+  .footer-copy{ font-size:12px; color: var(--cream); font-weight:700; margin:0 0 6px; white-space:nowrap; }
+  .footer-credit{ font-size:11px; color: rgba(251,243,222,0.6); margin:0; white-space:nowrap; }
+
   /* ---------- Subscribe / how-to ---------- */
   .sub-head{ max-width: 68ch; margin-bottom: 30px; }
   .sub-head h2{ font-family: var(--font-display); font-size: clamp(24px,3.2vw,32px); margin:0 0 10px; color: var(--ink); }
@@ -269,6 +280,7 @@
   .bank-row:last-child{ border-bottom:none; }
   .bank-row .k{ font-size:12.5px; color: var(--muted); }
   .bank-row .v{ font-family: var(--font-mono); font-size:15px; font-weight:700; direction:ltr; text-align:left; color: var(--ink); }
+  .v-row{ display:flex; align-items:center; gap:8px; }
   .copy-btn{
     background: var(--paper-dim); border:1px solid var(--line-strong); color: var(--ink);
     width:30px; height:30px; border-radius:7px; cursor:pointer; font-size:13px; flex-shrink:0;
@@ -293,6 +305,13 @@
   /* ---------- Mobile fixes ---------- */
   @media (max-width: 720px){
     .shell{ padding: 0 16px; }
+
+    .footer-grid{ flex-direction:column; align-items:center; text-align:center; gap:24px; }
+    .footer-about{ margin-inline:auto; }
+    .contact-links{ justify-content:center; }
+    .footer-legal-col{ text-align:center; }
+    .footer-copy{ font-size:11px; }
+    .footer-credit{ font-size:10.5px; }
 
     .topbar-inner{ flex-wrap:wrap; justify-content:center; text-align:center; gap:12px; padding: 14px 0; }
     .brand{ justify-content:center; }
@@ -328,10 +347,6 @@
     .dist-card{ text-align:center; margin-top:24px; }
     .dist-card .sub{ margin-inline:auto; max-width:32ch; }
 
-    .about-block{ text-align:center; margin-top:36px; padding-top:28px; }
-    .about-block p{ margin-inline:auto; }
-    .contact-links{ justify-content:center; }
-
     .panel{ padding:18px; }
     .panel-head{ flex-direction:column; align-items:center; text-align:center; gap:6px; }
     .scroll-hint{ display:flex; justify-content:center; text-align:center; }
@@ -343,9 +358,8 @@
 
     .side-card{ text-align:center; padding:18px; }
     .side-card h3{ text-align:center; }
-    .bank-row{ flex-direction:column; align-items:center; gap:8px; text-align:center; }
-    .bank-row .v{ text-align:center; direction:ltr; }
-    .copy-btn{ margin:0 auto; }
+    .bank-row{ flex-direction:column; align-items:center; gap:6px; text-align:center; }
+    .v-row{ justify-content:center; }
 
     .warn-list li{ justify-content:center; text-align:center; }
   }
@@ -408,25 +422,6 @@
         <div id="distChart"></div>
       </div>
     </div>
-
-    <div class="about-block">
-      <div>
-        <h3>عن الجمعية</h3>
-        <p>جمعية أرياف مروي التعاونية متعددة الأغراض جمعية تعاونية تُعنى بأنشطة الأعضاء الزراعية والحيوانية والإنتاجية
-        في منطقة مروي، وتقوم على مبدأ المساهمة بين أعضائها.</p>
-
-        <div class="contact-links">
-          <a class="contact-link" href="https://maps.app.goo.gl/MgzXa5QHdMbQUwpk8" target="_blank" rel="noopener">
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            موقعنا على الخريطة
-          </a>
-          <a class="contact-link" href="https://www.facebook.com/profile.php?id=61588579863769" target="_blank" rel="noopener">
-            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
-            صفحتنا على فيسبوك
-          </a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- MEMBERS -->
@@ -480,7 +475,7 @@
             <div class="step-body">
               <h4>رسوم التسجيل + السهم الأول</h4>
               <p>رسوم التسجيل 2,000 + قيمة السهم الأول 18,000 — تُدفع دفعة واحدة كسهم أول بقيمة إجمالية 20,000.</p>
-              <span class="tag">20,000 = 2,000 رسوم + 18,000 سهم أول</span>
+              <span class="tag">2,000 رسوم + 18,000 سهم أول = 20,000 جنيه</span>
             </div>
           </li>
           <li>
@@ -536,18 +531,18 @@
           <div style="margin-bottom:18px;">
             <div class="k" style="margin-bottom:8px; font-weight:700; color: var(--gold-soft);">1) بنك المزارع — فرع مروي</div>
             <div class="bank-row">
-              <div>
-                <div class="k">رقم الحساب</div>
+              <div class="k">رقم الحساب</div>
+              <div class="v-row">
                 <div class="v" id="bank1Num">01000559138</div>
+                <button class="copy-btn" onclick="copyText('01000559138', this)" title="نسخ الرقم">⧉</button>
               </div>
-              <button class="copy-btn" onclick="copyText('01000559138', this)" title="نسخ الرقم">⧉</button>
             </div>
             <div class="bank-row">
-              <div>
-                <div class="k">عبر البيان (من أي بنك آخر)</div>
+              <div class="k">عبر البيان (من أي بنك آخر)</div>
+              <div class="v-row">
                 <div class="v" id="bank1Iban">22001000559138</div>
+                <button class="copy-btn" onclick="copyText('22001000559138', this)" title="نسخ الرقم">⧉</button>
               </div>
-              <button class="copy-btn" onclick="copyText('22001000559138', this)" title="نسخ الرقم">⧉</button>
             </div>
             <div class="bank-row">
               <div>
@@ -560,11 +555,11 @@
           <div style="border-top:1px solid var(--line); padding-top:16px;">
             <div class="k" style="margin-bottom:8px; font-weight:700; color: var(--gold-soft);">2) بنك الخرطوم — فرع مروي</div>
             <div class="bank-row">
-              <div>
-                <div class="k">رقم الحساب</div>
+              <div class="k">رقم الحساب</div>
+              <div class="v-row">
                 <div class="v" id="bank2Num">8697634</div>
+                <button class="copy-btn" onclick="copyText('8697634', this)" title="نسخ الرقم">⧉</button>
               </div>
-              <button class="copy-btn" onclick="copyText('8697634', this)" title="نسخ الرقم">⧉</button>
             </div>
             <div class="bank-row">
               <div>
@@ -597,6 +592,35 @@
   </section>
 
 </main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-grid">
+      <div class="footer-about-col">
+        <h3 class="footer-title">عن الجمعية</h3>
+        <p class="footer-about">
+          جمعية أرياف مروي التعاونية متعددة الأغراض جمعية تعاونية تُعنى بأنشطة الأعضاء الزراعية والحيوانية والإنتاجية
+          في منطقة مروي، وتقوم على مبدأ المساهمة بين أعضائها.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link" href="https://maps.app.goo.gl/MgzXa5QHdMbQUwpk8" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            موقعنا على الخريطة
+          </a>
+          <a class="contact-link" href="https://www.facebook.com/profile.php?id=61588579863769" target="_blank" rel="noopener">
+            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+            صفحتنا على فيسبوك
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-legal-col">
+        <p class="footer-copy">جميع الحقوق محفوظة جمعية أرياف مروي التعاونية متعددة الأغراض <span dir="ltr">2026 ©</span></p>
+        <p class="footer-credit">طور من قبل : باسل اسماعيل المهدي</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <div class="toast" id="toast"></div>
 
@@ -708,13 +732,15 @@ function renderDistribution(){
     { label:'+100', test:s=>s>100 },
   ];
   const counts = bands.map(b => members.filter(m => b.test(Number(m.s||0))).length);
+  const combined = bands.map((b,i) => ({ ...b, count: counts[i] }))
+                         .sort((a,b) => b.count - a.count);
   const max = Math.max(1, ...counts);
   const wrap = document.getElementById('distChart');
-  wrap.innerHTML = bands.map((b,i) => `
+  wrap.innerHTML = combined.map(b => `
     <div class="dist-row">
       <div class="lbl">${b.label} سهم</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(counts[i]/max*100)}%"></div></div>
-      <div class="cnt">${fmt(counts[i])}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(b.count/max*100)}%"></div></div>
+      <div class="cnt">${fmt(b.count)}</div>
     </div>
   `).join('');
 }
