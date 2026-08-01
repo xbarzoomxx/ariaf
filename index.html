@@ -200,7 +200,7 @@
 
   .table-scroll{
     overflow-x: auto; -webkit-overflow-scrolling: touch;
-    touch-action: pan-x pan-y;
+    touch-action: pan-y;
     width: 100%; max-width: 100%; min-width: 0;
   }
   table{ width:100%; min-width:600px; border-collapse: collapse; font-size:14px; }
@@ -831,6 +831,53 @@ function copyText(text, btn){
     if(btn){ const old = btn.textContent; btn.textContent='✓'; setTimeout(()=>btn.textContent=old, 1200); }
   }).catch(()=> showToast('تعذّر النسخ'));
 }
+
+/* ---------- manual drag-to-scroll fallback for members table ---------- */
+/* هذا حل مباشر يتحكم بتمرير الجدول برمجياً عبر JavaScript، بغض النظر عن أي تعارض
+   في سلوك السحب الافتراضي للمتصفح — يضمن عمل السحب على كل الأجهزة والمتصفحات. */
+(function initTableDrag(){
+  const el = document.querySelector('.table-scroll');
+  if(!el) return;
+
+  let startX = 0, startY = 0, startScroll = 0, dragging = false, isHorizontal = null;
+
+  el.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    startX = t.clientX; startY = t.clientY;
+    startScroll = el.scrollLeft;
+    dragging = true; isHorizontal = null;
+  }, { passive: true });
+
+  el.addEventListener('touchmove', (e) => {
+    if(!dragging) return;
+    const t = e.touches[0];
+    const dx = t.clientX - startX;
+    const dy = t.clientY - startY;
+    if(isHorizontal === null && (Math.abs(dx) > 6 || Math.abs(dy) > 6)){
+      isHorizontal = Math.abs(dx) > Math.abs(dy);
+    }
+    if(isHorizontal){
+      el.scrollLeft = startScroll - dx;
+      if(e.cancelable) e.preventDefault();
+    }
+  }, { passive: false });
+
+  const endTouch = () => { dragging = false; isHorizontal = null; };
+  el.addEventListener('touchend', endTouch);
+  el.addEventListener('touchcancel', endTouch);
+
+  // دعم السحب بالماوس أيضاً (مفيد على أجهزة اللمس الهجينة وأثناء الاختبار)
+  let mouseDown = false;
+  el.addEventListener('mousedown', (e) => {
+    mouseDown = true; startX = e.clientX; startScroll = el.scrollLeft;
+    el.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mousemove', (e) => {
+    if(!mouseDown) return;
+    el.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  window.addEventListener('mouseup', () => { mouseDown = false; el.style.cursor = ''; });
+})();
 
 /* ---------- init ---------- */
 (async function init(){
