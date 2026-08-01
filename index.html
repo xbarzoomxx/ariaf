@@ -307,6 +307,19 @@
     .stat{ padding:16px 12px; text-align:center; }
     .stat .num{ font-size:21px; }
 
+    #view-members table th:nth-child(1),
+    #view-members table td:nth-child(1){
+      position: sticky; right: 0; z-index: 5;
+      background: var(--paper); min-width:32px; max-width:32px;
+    }
+    #view-members table th:nth-child(2),
+    #view-members table td:nth-child(2){
+      position: sticky; right: 32px; z-index: 4;
+      background: var(--paper); min-width:230px; max-width:230px;
+      white-space: normal; word-break: break-word;
+      box-shadow: -6px 0 6px -6px rgba(59,39,18,0.18);
+    }
+
     .dist-card{ text-align:center; margin-top:24px; }
     .dist-card .sub{ margin-inline:auto; max-width:32ch; }
 
