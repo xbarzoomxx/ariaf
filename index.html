@@ -82,7 +82,7 @@
   nav.tabs button.active{ background: var(--gold); color: var(--paper); }
   nav.tabs button:not(.active):hover{ color: var(--ink); background: var(--paper-dim); }
 
-  main{ padding: 40px 0 90px; flex:1; }
+  main{ padding: 40px 0 90px; flex:1; min-width:0; }
   section.view{ display:none; animation: fadeUp .5s ease; }
   section.view.active{ display:block; }
   @keyframes fadeUp{ from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
@@ -201,7 +201,7 @@
   .table-scroll{
     overflow-x: auto; -webkit-overflow-scrolling: touch;
     touch-action: pan-x pan-y;
-    width: 100%; max-width: 100%;
+    width: 100%; max-width: 100%; min-width: 0;
   }
   table{ width:100%; min-width:600px; border-collapse: collapse; font-size:14px; }
   thead th{
